@@ -1,0 +1,44 @@
+@import '../abstract/variables';
+
+.card {
+    background-color: $white;
+
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+    border-radius: 10px;
+    
+    margin: 0 1rem;
+    padding: 2rem 1rem;
+
+    text-align: center;
+
+    .card__container {
+        .container__pageviews {
+            color: $grayish-blue;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+        }
+
+        .container__input {
+            appearance: none;
+        }
+
+        .container__input::-webkit-slider-runnable-track {
+            background-color: $light-grayish-blue-slider;
+            border-radius: 50px;
+        }
+
+
+
+        .container__input::-moz-slider-runnable-track {
+            background-color: $light-grayish-blue-slider;
+            border-radius: 25px;
+        }
+        
+        .container__input::-moz-range-track {
+            border-radius: 5px;
+        }
+    }
+}

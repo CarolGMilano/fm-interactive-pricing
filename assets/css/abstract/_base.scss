@@ -1,0 +1,7 @@
+@import './variables';
+
+body {
+    background: url('../img/bg-pattern.svg') no-repeat, $white;
+
+    font-family: $font;
+}

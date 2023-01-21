@@ -6,45 +6,138 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+
+        <style>
+            input[type=range]::-webkit-slider-thumb {
+                width: 40px;
+                height: 40px;
+                background: url('assets/img/icon-slider.svg') no-repeat center, hsl(174, 86%, 45%);
+                border-radius: 999px;
+                -webkit-appearance: none;
+                box-shadow: hsl(174, 86%, 45%) 0px 7px 29px 0px;
+            }
+
+            input[type=range]::-webkit-slider-thumb:active:hover {
+                filter: brightness(0.8);
+                cursor: grab;
+            }
+
+            input[type=range]::-webkit-slider-thumb:hover {
+                filter: brightness(1.1);
+                cursor: pointer;
+            }
+
+            .checkbox::before{
+                content: '';
+                position: absolute;
+                background-color: white;
+                width: 13px;
+                height: 13px;
+                border-radius: 100%;
+                left: 4px;
+                top: 3px;
+            } 
+
+            .active::before {
+                animation: toggle-go ease-in-out .3s forwards;
+            }
+
+            .no-active::before {
+                animation: toggle-back ease-in-out .3s forwards;
+            }
+
+            @keyframes toggle-go {
+                0%{ 
+                    left: 4px;
+                }
+                100%{ 
+                    left: 23px;
+                }
+            }
+
+            @keyframes toggle-back {
+                0%{ 
+                    left: 23px;
+                }
+                100%{ 
+                    left: 4px;
+                }
+            }
+        </style>
 
         <title>Document</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            softCyan: 'hsl(174, 77%, 80%)',
+                            strongCyan: 'hsl(174, 86%, 45%)',
+                            lightGrayishRed: 'hsl(14, 92%, 95%)',
+                            lightRed: 'hsl(15, 100%, 70%)',
+                            paleBlue: 'hsl(226, 100%, 87%)',
+                            veryPaleBlue: 'hsl(230, 100%, 99%)',
+                            lightGrayishBlueSlider: 'hsl(224, 65%, 95%)',
+                            ligthGrayishBlueToggle: 'hsl(223, 50%, 87%)',
+                            grayishBlue: 'hsl(225, 20%, 60%)',
+                            darkDesaturatedBlue: 'hsl(227, 35%, 25%)',
+                        },
+                        fontFamily: {
+                            manrope: ['Manrope', 'sans-serif']
+                        },
+                        backgroundImage: {
+                            'bodyPattern': 'url(assets/img/bg-pattern.svg)',
+                            'headerCircles': 'url(assets/img/pattern-circles.svg)',
+                            'gradient': 'linear-gradient(to right, hsl(174, 77%, 80%) 50%, hsl(224, 65%, 95%) 50%, hsl(224, 65%, 95%) 100%)'
+                        }
+                    }
+                }
+            }
+        </script>
     </head>
 
-    <body>
-        <header class="header">
-            <h1 class="header__title">Simple, traffic-based pricing</h1>
-            <p class="header__subtitle">Sign-up for our 30-day trial. No credit card required.</p>
+    <body class="w-screen h-screen bg-bodyPattern bg-no-repeat font-manrope md:bg-contain md:overflow-hidden">
+        <header class="p-10 mt-16 bg-headerCircles bg-no-repeat bg-center mb-8 md:p-12 md:mt-20">
+            <h1 class="font-extrabold text-darkDesaturatedBlue text-xl text-center">Simple, traffic-based pricing</h1>
+            <p class="pt-2 w-3/5 text-sm text-center mx-auto text-grayishBlue">Sign-up for our 30-day trial. No credit card required.</p>
         </header>
 
-        <main>
-            <section class="card">
-                <div class="card__container">
-                    <h2 class="container__pageviews"><span class="number">100k</span> pageviews</h2>
-                    <label><input type="range" class="container__input" min="1" max="5" value="3"></label>
-                    <p class="container__price"><span class="container__price">$16.00</span> / <span class="price__detail">month</span></p>
+        <main class="flex justify-center items-center">
+            <section class="bg-white mx-5 rounded-md shadow-xl md:w-7/12 md:max-w-lg">
+                <div class="flex flex-col justify-center items-center px-5 py-8 md:px-10 md:relative">
+                    <h2 class="text-grayishBlue text-xs	tracking-[.1em] uppercase font-bold my-8 md:justify-self-start md:w-full"><span data-pageviews>100k</span> pageviews</h2>
+                    <label class="w-full"><input type="range" class="appearance-none bg-gradient rounded-md w-full range-lg h-2" min="1" max="5" value="3" data-range></label>
+                    <p class="mt-10 text-grayishBlue flex justify-center items-center text-xs md:absolute md:top-4 md:right-10"><span class="text-2xl text-darkDesaturatedBlue font-bold pr-2 md:text-4xl" data-price>$16.00</span> /<span class="pl-1" data-plan>month</span></p>
     
-                    <div class="container__slider">
-                        <span class="slider__month">Monthly Billing</span>
-                        <label for=""><input type="checkbox" name="" id=""></label>
-                        <span class="slider__year">Yearly Billing</span>
-                        <span class="slider__discount">-25%</span>
+                    <div class="flex gap-2 text-grayishBlue text-xs mt-6 justify-center items-center md: mt-12">
+                        <span style="color: rgb(16, 213, 194);" data-monthly>Monthly Billing</span>
+                        <label class="checkbox w-10 h-5 bg-ligthGrayishBlueToggle rounded-full relative hover:bg-strongCyan hover:cursor-pointer duration-300" data-label><input type="checkbox" class="opacity-0 w-0 h-0" data-checkbox></label>
+                        <span data-yearly>Yearly Billing</span>
+                        <span class="bg-lightGrayishRed text-lightRed rounded-full py-0.5 px-2 font-bold "><span class="block md:hidden">-25%</span><span class="hidden md:block">25% discount</span></span>
                     </div>
                 </div>
 
-                <div class="card__descrip">
-                    <div class="descrip__topics">
-                        <ul>
-                            <li class="topics__text">Inlimited websites</li>
-                            <li class="topics__text">100% data ownership</li>
-                            <li class="topics__text">Email reports</li>
+                <hr>
+
+                <div class="px-5 py-7 flex flex-col justify-center items-center md:flex-row md:gap-10">
+                    <div>
+                        <ul class="flex flex-col gap-y-2 text-grayishBlue text-sm  justify-center items-center md:items-start">
+                            <li class="bg-[url('/assets/img/icon-check.svg')] bg-no-repeat pl-5 bg-left">Unlimited websites</li>
+                            <li class="bg-[url('/assets/img/icon-check.svg')] bg-no-repeat pl-5 bg-left">100% data ownership</li>
+                            <li class="bg-[url('/assets/img/icon-check.svg')] bg-no-repeat pl-5 bg-left">Email reports</li>
                         </ul>
                     </div>
 
-                    <button class="descrip__btnStart">Start my trial</button>
+                    <button class="text-paleBlue bg-darkDesaturatedBlue mt-6 py-3 px-12 rounded-full text-base hover:cursor-pointer hover:text-white duration-300 md:mt-0 md:py-2 md:px-9 md:text-sm">Start my trial</button>
                 </div>
             </section>
         </main>
+        <script src="assets/js/index.js"></script>
     </body>
 </html>

@@ -68,7 +68,8 @@
             }
         </style>
 
-        <title>Document</title>
+        <link rel="shortcut icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
+        <title>Interactive pricing</title>
 
         <script src="https://cdn.tailwindcss.com"></script>
 
@@ -102,7 +103,7 @@
         </script>
     </head>
 
-    <body class="w-screen h-screen bg-bodyPattern bg-no-repeat font-manrope md:bg-contain md:overflow-hidden">
+    <body class="w-screen h-screen bg-bodyPattern bg-no-repeat bg-left-top font-manrope md:bg-contain md:overflow-hidden">
         <header class="p-10 mt-16 bg-headerCircles bg-no-repeat bg-center mb-8 md:p-12 md:mt-20">
             <h1 class="font-extrabold text-darkDesaturatedBlue text-xl text-center">Simple, traffic-based pricing</h1>
             <p class="pt-2 w-3/5 text-sm text-center mx-auto text-grayishBlue">Sign-up for our 30-day trial. No credit card required.</p>
@@ -117,7 +118,7 @@
     
                     <div class="flex gap-2 text-grayishBlue text-xs mt-6 justify-center items-center md: mt-12">
                         <span style="color: rgb(16, 213, 194);" data-monthly>Monthly Billing</span>
-                        <label class="checkbox w-10 h-5 bg-ligthGrayishBlueToggle rounded-full relative hover:bg-strongCyan hover:cursor-pointer duration-300" data-label><input type="checkbox" class="opacity-0 w-0 h-0" data-checkbox></label>
+                        <label for="input" class="checkbox w-10 h-5 bg-ligthGrayishBlueToggle rounded-full relative hover:bg-strongCyan hover:cursor-pointer duration-300" data-label><input type="checkbox" class="opacity-0 w-0 h-0" data-checkbox id="input"></label>
                         <span data-yearly>Yearly Billing</span>
                         <span class="bg-lightGrayishRed text-lightRed rounded-full py-0.5 px-2 font-bold "><span class="block md:hidden">-25%</span><span class="hidden md:block">25% discount</span></span>
                     </div>

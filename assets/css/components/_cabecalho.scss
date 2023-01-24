@@ -1,0 +1,36 @@
+@import '../abstract/_var.scss';
+
+.cabecalho {
+    background: url('../img/pattern-circles.svg') no-repeat center;
+    margin: 3rem 1.5rem;
+    padding: 3rem 0;
+    text-align: center;
+
+    .cabecalho__titulo {
+        color: $darkDesaturatedBlue;
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: .5rem;
+    }
+
+    .cabecalho__subtitulo {
+        width: 200px;
+        color: $grayishBlue;
+        font-size: 14px;
+        margin: 0 auto;
+        line-height: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .cabecalho {
+        .cabecalho__titulo {
+            font-size: 28px;
+        }
+
+        .cabecalho__subtitulo {
+            width: auto;
+            font-size: 15px;
+        }
+    }
+}

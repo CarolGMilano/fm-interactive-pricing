@@ -1,0 +1,18 @@
+@import './_var.scss';
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    background: url('../img/bg-pattern.svg') no-repeat;
+    font-family: $fonte;
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        padding: 0;
+        overflow: hidden;
+        background: url('../img/bg-pattern.svg') no-repeat;
+        background-size: 100% 50%;
+    }
+}

@@ -8,6 +8,32 @@ body {
     font-family: $fonte;
 }
 
+.active::before {
+    animation: toggle-go ease-in-out .3s forwards;
+}
+
+.no-active::before {
+    animation: toggle-back ease-in-out .3s forwards;
+}
+
+@keyframes toggle-go {
+    0%{ 
+        left: 4px;
+    }
+    100%{ 
+        left: 23px;
+    }
+}
+
+@keyframes toggle-back {
+    0%{ 
+        left: 23px;
+    }
+    100%{ 
+        left: 4px;
+    }
+}
+
 @media screen and (min-width: 500px) {
     body {
         padding: 0;

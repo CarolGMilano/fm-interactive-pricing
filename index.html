@@ -9,64 +9,6 @@
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
-        <style>
-            /* input[type=range]::-webkit-slider-thumb {
-                width: 40px;
-                height: 40px;
-                background: url('assets/img/icon-slider.svg') no-repeat center, hsl(174, 86%, 45%);
-                border-radius: 999px;
-                -webkit-appearance: none;
-                box-shadow: hsl(174, 86%, 45%) 0px 7px 29px 0px;
-            } */
-
-            /* input[type=range]::-webkit-slider-thumb:active:hover {
-                filter: brightness(0.8);
-                cursor: grab;
-            }
-
-            input[type=range]::-webkit-slider-thumb:hover {
-                filter: brightness(1.1);
-                cursor: pointer;
-            } */
-
-            .checkbox::before{
-                content: '';
-                position: absolute;
-                background-color: white;
-                width: 13px;
-                height: 13px;
-                border-radius: 100%;
-                left: 4px;
-                top: 3px;
-            } 
-
-            .active::before {
-                animation: toggle-go ease-in-out .3s forwards;
-            }
-
-            .no-active::before {
-                animation: toggle-back ease-in-out .3s forwards;
-            }
-
-            @keyframes toggle-go {
-                0%{ 
-                    left: 4px;
-                }
-                100%{ 
-                    left: 23px;
-                }
-            }
-
-            @keyframes toggle-back {
-                0%{ 
-                    left: 23px;
-                }
-                100%{ 
-                    left: 4px;
-                }
-            }
-        </style>
-
         <link rel="shortcut icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
         <title>Interactive pricing</title>
     </head>

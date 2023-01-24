@@ -9,6 +9,49 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+.active::before {
+  -webkit-animation: toggle-go ease-in-out 0.3s forwards;
+          animation: toggle-go ease-in-out 0.3s forwards;
+}
+
+.no-active::before {
+  -webkit-animation: toggle-back ease-in-out 0.3s forwards;
+          animation: toggle-back ease-in-out 0.3s forwards;
+}
+
+@-webkit-keyframes toggle-go {
+  0% {
+    left: 4px;
+  }
+  100% {
+    left: 23px;
+  }
+}
+
+@keyframes toggle-go {
+  0% {
+    left: 4px;
+  }
+  100% {
+    left: 23px;
+  }
+}
+@-webkit-keyframes toggle-back {
+  0% {
+    left: 23px;
+  }
+  100% {
+    left: 4px;
+  }
+}
+@keyframes toggle-back {
+  0% {
+    left: 23px;
+  }
+  100% {
+    left: 4px;
+  }
+}
 @media screen and (min-width: 500px) {
   body {
     padding: 0;
